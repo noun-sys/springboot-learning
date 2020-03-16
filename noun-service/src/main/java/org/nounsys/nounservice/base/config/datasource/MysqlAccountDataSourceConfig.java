@@ -1,4 +1,4 @@
-package org.nounsys.nounservice.config.datasource;
+package org.nounsys.nounservice.base.config.datasource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -12,17 +12,15 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
-
 
 /**
  * @author:gaoxu
  * @create:2020-03-16 15:43
  **/
 @Configuration
-@MapperScan(basePackages = MysqlAccountDataSourceConfig.PACKAGE,sqlSessionFactoryRef="AccountSqlSessionTemplate")
+@MapperScan(basePackages = MysqlAccountDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "AccountSqlSessionTemplate")
 public class MysqlAccountDataSourceConfig {
 
     static final String PACKAGE = "org.nounsys.nounservice.datasource.account.mapper";
@@ -32,8 +30,8 @@ public class MysqlAccountDataSourceConfig {
     @Bean(name = "accountDataSource")
     @Primary
     @Qualifier("accountDataSource")
-    @ConfigurationProperties(prefix="spring.datasource.account")
-    public DataSource getMyDataSource(){
+    @ConfigurationProperties(prefix = "spring.datasource.account")
+    public DataSource getMyDataSource() {
         return DataSourceBuilder.create().build();
     }
 

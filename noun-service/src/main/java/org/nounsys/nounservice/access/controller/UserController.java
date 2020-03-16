@@ -1,4 +1,4 @@
-package org.nounsys.nounservice.acc.controller;
+package org.nounsys.nounservice.access.controller;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

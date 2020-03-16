@@ -140,12 +140,12 @@ Caused by: java.io.FileNotFoundException: class path resource [mapper/contract/]
 	at org.springframework.core.io.ClassPathResource.getURL(ClassPathResource.java:195)
 	at org.springframework.core.io.support.PathMatchingResourcePatternResolver.findPathMatchingResources(PathMatchingResourcePatternResolver.java:498)
 	at org.springframework.core.io.support.PathMatchingResourcePatternResolver.getResources(PathMatchingResourcePatternResolver.java:298)
-	at org.nounsys.nounservice.config.datasource.MysqlContractDataSourceConfig.devSqlSessionFactory(MysqlContractDataSourceConfig.java:51)
-	at org.nounsys.nounservice.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$56cd3af7.CGLIB$devSqlSessionFactory$2(<generated>)
-	at org.nounsys.nounservice.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$56cd3af7$$FastClassBySpringCGLIB$$95af34d4.invoke(<generated>)
+	at org.nounsys.nounservice.base.config.datasource.MysqlContractDataSourceConfig.devSqlSessionFactory(MysqlContractDataSourceConfig.java:51)
+	at org.nounsys.nounservice.base.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$56cd3af7.CGLIB$devSqlSessionFactory$2(<generated>)
+	at org.nounsys.nounservice.base.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$56cd3af7$$FastClassBySpringCGLIB$$95af34d4.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
 	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at org.nounsys.nounservice.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$56cd3af7.devSqlSessionFactory(<generated>)
+	at org.nounsys.nounservice.base.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$56cd3af7.devSqlSessionFactory(<generated>)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -199,12 +199,12 @@ Caused by: java.io.FileNotFoundException: class path resource [mapper/contract/]
 	at org.springframework.core.io.ClassPathResource.getURL(ClassPathResource.java:195)
 	at org.springframework.core.io.support.PathMatchingResourcePatternResolver.findPathMatchingResources(PathMatchingResourcePatternResolver.java:498)
 	at org.springframework.core.io.support.PathMatchingResourcePatternResolver.getResources(PathMatchingResourcePatternResolver.java:298)
-	at org.nounsys.nounservice.config.datasource.MysqlContractDataSourceConfig.devSqlSessionFactory(MysqlContractDataSourceConfig.java:51)
-	at org.nounsys.nounservice.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$90020539.CGLIB$devSqlSessionFactory$1(<generated>)
-	at org.nounsys.nounservice.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$90020539$$FastClassBySpringCGLIB$$9e04bd77.invoke(<generated>)
+	at org.nounsys.nounservice.base.config.datasource.MysqlContractDataSourceConfig.devSqlSessionFactory(MysqlContractDataSourceConfig.java:51)
+	at org.nounsys.nounservice.base.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$90020539.CGLIB$devSqlSessionFactory$1(<generated>)
+	at org.nounsys.nounservice.base.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$90020539$$FastClassBySpringCGLIB$$9e04bd77.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
 	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at org.nounsys.nounservice.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$90020539.devSqlSessionFactory(<generated>)
+	at org.nounsys.nounservice.base.config.datasource.MysqlContractDataSourceConfig$$EnhancerBySpringCGLIB$$90020539.devSqlSessionFactory(<generated>)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -282,3 +282,49 @@ Caused by: org.springframework.beans.factory.NoUniqueBeanDefinitionException: No
 2020-03-16 18:03:25,493 [][] [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references 
 2020-03-16 18:03:25,563 [][] [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
 2020-03-16 18:03:25,568 [][] [main] INFO  o.n.n.NounServiceApplication - Started NounServiceApplication in 5.963 seconds (JVM running for 8.421) 
+2020-03-16 21:04:38,636 [][] [main] INFO  o.n.n.NounServiceApplication - Starting NounServiceApplication on Gao-Mac.local with PID 1037 (/Users/gaoxu/person_workspace/springboot-learning/noun-service/target/classes started by gaoxu in /Users/gaoxu/person_workspace/springboot-learning/noun-service) 
+2020-03-16 21:04:38,640 [][] [main] INFO  o.n.n.NounServiceApplication - No active profile set, falling back to default profiles: default 
+2020-03-16 21:04:39,643 [][] [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'enterpriseMapper' and 'org.nounsys.nounservice.datasource.account.mapper.EnterpriseMapper' mapperInterface. Bean already defined with the same name! 
+2020-03-16 21:04:39,643 [][] [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'enterpriseVerificationMapper' and 'org.nounsys.nounservice.datasource.account.mapper.EnterpriseVerificationMapper' mapperInterface. Bean already defined with the same name! 
+2020-03-16 21:04:39,644 [][] [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userInfoMapper' and 'org.nounsys.nounservice.datasource.account.mapper.UserInfoMapper' mapperInterface. Bean already defined with the same name! 
+2020-03-16 21:04:39,644 [][] [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'org.nounsys.nounservice.datasource.account.mapper.UserMapper' mapperInterface. Bean already defined with the same name! 
+2020-03-16 21:04:39,644 [][] [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.nounsys.nounservice.datasource.account.mapper]' package. Please check your configuration. 
+2020-03-16 21:04:40,160 [][] [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-03-16 21:04:40,174 [][] [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-03-16 21:04:40,174 [][] [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31] 
+2020-03-16 21:04:40,288 [][] [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-03-16 21:04:40,288 [][] [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1580 ms 
+2020-03-16 21:04:41,106 [][] [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)] 
+2020-03-16 21:04:41,210 [][] [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-03-16 21:04:41,405 [][] [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed 
+2020-03-16 21:04:41,434 [][] [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s) 
+2020-03-16 21:04:41,471 [][] [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references 
+2020-03-16 21:04:41,530 [][] [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-03-16 21:04:41,536 [][] [main] INFO  o.n.n.NounServiceApplication - Started NounServiceApplication in 3.463 seconds (JVM running for 6.14) 
+2020-03-16 21:06:06,474 [][] [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2020-03-16 21:06:06,474 [][] [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2020-03-16 21:06:06,481 [][] [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms 
+2020-03-16 21:06:36,512 [][] [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-03-16 21:06:43,385 [][] [main] INFO  o.n.n.NounServiceApplication - Starting NounServiceApplication on Gao-Mac.local with PID 1172 (/Users/gaoxu/person_workspace/springboot-learning/noun-service/target/classes started by gaoxu in /Users/gaoxu/person_workspace/springboot-learning/noun-service) 
+2020-03-16 21:06:43,389 [][] [main] INFO  o.n.n.NounServiceApplication - No active profile set, falling back to default profiles: default 
+2020-03-16 21:06:44,252 [][] [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'enterpriseMapper' and 'org.nounsys.nounservice.datasource.account.mapper.EnterpriseMapper' mapperInterface. Bean already defined with the same name! 
+2020-03-16 21:06:44,253 [][] [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'enterpriseVerificationMapper' and 'org.nounsys.nounservice.datasource.account.mapper.EnterpriseVerificationMapper' mapperInterface. Bean already defined with the same name! 
+2020-03-16 21:06:44,253 [][] [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userInfoMapper' and 'org.nounsys.nounservice.datasource.account.mapper.UserInfoMapper' mapperInterface. Bean already defined with the same name! 
+2020-03-16 21:06:44,253 [][] [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'org.nounsys.nounservice.datasource.account.mapper.UserMapper' mapperInterface. Bean already defined with the same name! 
+2020-03-16 21:06:44,253 [][] [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.nounsys.nounservice.datasource.account.mapper]' package. Please check your configuration. 
+2020-03-16 21:06:44,633 [][] [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-03-16 21:06:44,641 [][] [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-03-16 21:06:44,642 [][] [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31] 
+2020-03-16 21:06:44,713 [][] [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-03-16 21:06:44,714 [][] [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1250 ms 
+2020-03-16 21:06:45,342 [][] [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)] 
+2020-03-16 21:06:45,510 [][] [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-03-16 21:06:45,849 [][] [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed 
+2020-03-16 21:06:45,865 [][] [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s) 
+2020-03-16 21:06:45,894 [][] [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references 
+2020-03-16 21:06:46,075 [][] [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-03-16 21:06:46,079 [][] [main] INFO  o.n.n.NounServiceApplication - Started NounServiceApplication in 3.268 seconds (JVM running for 4.522) 
+2020-03-16 21:06:58,409 [][] [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2020-03-16 21:06:58,409 [][] [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2020-03-16 21:06:58,414 [][] [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms 
+2020-03-16 21:36:50,675 [][] [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 

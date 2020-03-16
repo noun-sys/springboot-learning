@@ -1,4 +1,4 @@
-package org.nounsys.nounservice.config.datasource;
+package org.nounsys.nounservice.base.config.datasource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -8,11 +8,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -21,7 +19,7 @@ import javax.sql.DataSource;
  * @create:2020-03-16 15:56
  **/
 @Configuration
-@MapperScan(basePackages = MysqlContractDataSourceConfig.PACKAGE,sqlSessionFactoryRef="ContractSqlSessionTemplate")
+@MapperScan(basePackages = MysqlContractDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "ContractSqlSessionTemplate")
 public class MysqlContractDataSourceConfig {
 
     static final String PACKAGE = "org.nounsys.nounservice.datasource.account.mapper";
@@ -30,8 +28,8 @@ public class MysqlContractDataSourceConfig {
 
     @Bean(name = "contractDataSource")
     @Qualifier("contractDataSource")
-    @ConfigurationProperties(prefix="spring.datasource.second")
-    public DataSource getMyDataSource(){
+    @ConfigurationProperties(prefix = "spring.datasource.second")
+    public DataSource getMyDataSource() {
         return DataSourceBuilder.create().build();
     }
 

@@ -14,9 +14,9 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="${jdbc.driverClassName}"
-                        connectionURL="${jdbc.account.url}"
-                        userId="${jdbc.account.username}"
-                        password="${jdbc.account.password}">
+                        connectionURL="${jdbc.contract.url}"
+                        userId="${jdbc.contract.username}"
+                        password="${jdbc.contract.password}">
         </jdbcConnection>
 
         <!--非必须，类型处理器，在数据库类型和java类型之间的转换控制-->
@@ -25,18 +25,18 @@
         </javaTypeResolver>
 
         <!--生成entity类存放位置-->
-        <javaModelGenerator targetPackage="${package.account.model}" targetProject="${src_main_java}">
+        <javaModelGenerator targetPackage="${package.contract.model}" targetProject="${src_main_java}">
             <property name="enableSubPackages" value="true"></property>
             <property name="trimStrings" value="true"></property>
         </javaModelGenerator>
 
         <!--生成映射文件存放位置-->
-        <sqlMapGenerator targetPackage="${package.account.xml}" targetProject="${src_main_resources}">
+        <sqlMapGenerator targetPackage="${package.contract.xml}" targetProject="${src_main_resources}">
             <property name="enableSubPackages" value="true"></property>
         </sqlMapGenerator>
 
         <!--生成Dao类存放位置-->
-        <javaClientGenerator targetPackage="${package.account.mapper}" targetProject="${src_main_java}" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="${package.contract.mapper}" targetProject="${src_main_java}" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 

@@ -3,9 +3,11 @@ package org.nounsys.nounservice.access.controller;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.nounsys.nounservice.base.aspect.annotation.Logable;
+import org.nounsys.nounservice.base.aspect.annotation.ResultContent;
+import org.nounsys.nounservice.base.aspect.annotation.WebLog;
 import org.nounsys.nounservice.base.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,11 +31,13 @@ public class UserController {
     @ApiImplicitParams({@ApiImplicitParam(name = "userName", value = "用户名", required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String", paramType = "query")})
     @PostMapping(value = "/login")
-    public ResponseEntity Login(@RequestParam String userName, @RequestParam String password) {
+    @ResultContent
+    @WebLog
+    public String Login(@RequestParam String userName, @RequestParam String password) {
         if (userName.equals("admin") && password.equals("admin")) {
-            return ResponseEntity.ok("OK");
+            return "OK";
         } else {
-            return ResponseEntity.ok("Fail");
+            return "Fail";
         }
     }
 

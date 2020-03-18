@@ -3,7 +3,6 @@ package org.nounsys.nounservice.access.controller;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.nounsys.nounservice.base.aspect.annotation.Logable;
 import org.nounsys.nounservice.base.aspect.annotation.ResultContent;
 import org.nounsys.nounservice.base.aspect.annotation.WebLog;
 import org.nounsys.nounservice.base.utils.JwtUtils;

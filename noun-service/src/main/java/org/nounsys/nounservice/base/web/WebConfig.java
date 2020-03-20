@@ -15,16 +15,16 @@ import java.util.List;
  **/
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-    @Autowired
-    private TokenInterceptor tokenInterceptor;
+//    @Autowired
+//    private TokenInterceptor tokenInterceptor;
     @Autowired
     private CustomResponseReturnValueHandler customResponseReturnValueHandler;
 
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(tokenInterceptor)
-                .addPathPatterns("/**")
-                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
-    }
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(tokenInterceptor)
+//                .addPathPatterns("/**")
+//                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
+//    }
 
     @Override
     public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {

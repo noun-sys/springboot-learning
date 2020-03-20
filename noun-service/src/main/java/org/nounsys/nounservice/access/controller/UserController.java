@@ -6,11 +6,10 @@ import io.swagger.annotations.ApiOperation;
 import org.nounsys.nounservice.base.aspect.annotation.ResultContent;
 import org.nounsys.nounservice.base.aspect.annotation.WebLog;
 import org.nounsys.nounservice.base.utils.JwtUtils;
+import org.nounsys.nounservice.datasource.account.entity.User;
+import org.nounsys.nounservice.datasource.account.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +24,9 @@ public class UserController {
 
     @Autowired
     private JwtUtils jwtUtils;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @ApiOperation("用户登陆")
     @ApiImplicitParams({@ApiImplicitParam(name = "userName", value = "用户名", required = true, dataType = "String", paramType = "query"),
@@ -43,9 +45,27 @@ public class UserController {
     @ApiOperation("获取用户授权Token码")
     @PostMapping(value = "/token")
     public String getToken() {
-       Map<String,String> claims = new HashMap<>();
-       claims.put("privateKey","bl");
-       claims.put("seractKey","Mp");
-       return jwtUtils.sign(claims);
+        Map<String, String> claims = new HashMap<>();
+        claims.put("privateKey", "bl");
+        claims.put("seractKey", "Mp");
+        return jwtUtils.sign(claims);
+    }
+
+    @ApiOperation("获取用户信息")
+    @PostMapping(value = "/get")
+    public User getUserById(@RequestParam Long userId) {
+        return userMapper.selectByPrimaryKey(userId);
+    }
+
+    @ApiOperation("获取用户信息")
+    @GetMapping(value = "/get/info")
+    public User getUserByIdInfo(@RequestParam Long userId) {
+        return userMapper.selectByPrimaryKey(userId);
+    }
+
+    @ApiOperation("用户登录请求")
+    @RequestMapping(value = "c", method = RequestMethod.POST)
+    public String putAdmin(@RequestBody UserDetail userDetail) {
+        return userDetail.getUserName();
     }
 }

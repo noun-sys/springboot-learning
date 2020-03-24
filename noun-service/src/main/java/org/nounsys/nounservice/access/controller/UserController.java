@@ -3,9 +3,8 @@ package org.nounsys.nounservice.access.controller;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.nounsys.nounservice.base.aspect.annotation.ResultContent;
-import org.nounsys.nounservice.base.aspect.annotation.WebLog;
 import org.nounsys.nounservice.base.utils.JwtUtils;
+import org.nounsys.nounservice.bussiness.response.UserDetailResponse;
 import org.nounsys.nounservice.datasource.account.entity.User;
 import org.nounsys.nounservice.datasource.account.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +31,6 @@ public class UserController {
     @ApiImplicitParams({@ApiImplicitParam(name = "userName", value = "用户名", required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String", paramType = "query")})
     @PostMapping(value = "/login")
-    @ResultContent
-    @WebLog
     public String Login(@RequestParam String userName, @RequestParam String password) {
         if (userName.equals("admin") && password.equals("admin")) {
             return "OK";
@@ -64,8 +61,8 @@ public class UserController {
     }
 
     @ApiOperation("用户登录请求")
-    @RequestMapping(value = "c", method = RequestMethod.POST)
-    public String putAdmin(@RequestBody UserDetail userDetail) {
-        return userDetail.getUserName();
+    @RequestMapping(value = "/login/info", method = RequestMethod.POST)
+    public String putAdmin(@RequestBody UserDetailResponse userDetailResponse) {
+        return userDetailResponse.getUserName();
     }
 }

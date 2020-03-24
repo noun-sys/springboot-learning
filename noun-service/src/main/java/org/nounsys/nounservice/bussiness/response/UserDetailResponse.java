@@ -1,10 +1,10 @@
-package org.nounsys.nounservice.access.controller;
+package org.nounsys.nounservice.bussiness.response;
 
 /**
  * @author:gaoxu
  * @create:2020-03-20 16:59
  **/
-public class UserDetail {
+public class UserDetailResponse {
     private String userName;
     private String passWord;
 
@@ -24,11 +24,11 @@ public class UserDetail {
         this.passWord = passWord;
     }
 
-    public UserDetail(String userName, String passWord) {
+    public UserDetailResponse(String userName, String passWord) {
         this.userName = userName;
         this.passWord = passWord;
     }
 
-    public UserDetail() {
+    public UserDetailResponse() {
     }
 }

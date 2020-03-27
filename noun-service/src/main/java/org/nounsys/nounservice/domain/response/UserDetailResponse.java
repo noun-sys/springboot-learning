@@ -1,4 +1,4 @@
-package org.nounsys.nounservice.bussiness.response;
+package org.nounsys.nounservice.domain.response;
 
 /**
  * @author:gaoxu

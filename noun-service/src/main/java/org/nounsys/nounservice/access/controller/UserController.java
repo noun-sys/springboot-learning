@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.nounsys.nounservice.base.utils.JwtUtils;
-import org.nounsys.nounservice.bussiness.response.UserDetailResponse;
+import org.nounsys.nounservice.domain.response.UserDetailResponse;
 import org.nounsys.nounservice.datasource.account.entity.User;
 import org.nounsys.nounservice.datasource.account.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +21,14 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
     private JwtUtils jwtUtils;
+    private UserMapper userMapper;
 
     @Autowired
-    private UserMapper userMapper;
+    public UserController(JwtUtils jwtUtils, UserMapper userMapper) {
+        this.jwtUtils = jwtUtils;
+        this.userMapper = userMapper;
+    }
 
     @ApiOperation("用户登陆")
     @ApiImplicitParams({@ApiImplicitParam(name = "userName", value = "用户名", required = true, dataType = "String", paramType = "query"),

@@ -12,12 +12,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  **/
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-    @Autowired
-    private TokenInterceptor tokenInterceptor;
-
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(tokenInterceptor)
-                .addPathPatterns("/**")
-                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
-    }
+//    @Autowired
+//    private TokenInterceptor tokenInterceptor;
+//
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(tokenInterceptor)
+//                .addPathPatterns("/**")
+//                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
+//    }
 }

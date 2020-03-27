@@ -3,6 +3,7 @@ package org.nounsys.nounservice.access.controller;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.nounsys.nounservice.base.aspect.annotation.ApiVersion;
 import org.nounsys.nounservice.base.utils.JwtUtils;
 import org.nounsys.nounservice.domain.response.UserDetailResponse;
 import org.nounsys.nounservice.datasource.account.entity.User;
@@ -18,7 +19,7 @@ import java.util.Map;
  * @create:2020-03-16 15:38
  **/
 @RestController
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
 
     private JwtUtils jwtUtils;
@@ -67,5 +68,33 @@ public class UserController {
     @RequestMapping(value = "/login/info", method = RequestMethod.POST)
     public String putAdmin(@RequestBody UserDetailResponse userDetailResponse) {
         return userDetailResponse.getUserName();
+    }
+
+    @ApiVersion(1)
+    @GetMapping("/user/{name}")
+    @ApiOperation("改变用户姓名")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "name", value = "用户名", dataType = "string", paramType = "query"),
+            @ApiImplicitParam(name = "version", value = "版本", dataType = "int", paramType = "query")
+    })
+    public User getUser(@PathVariable("name") String name) {
+        User user = new User();
+        user.setUsername(name);
+        user.setUsername("哒哒哒哒哒哒多多123");
+        return user;
+    }
+
+
+    @ApiVersion(3)
+    @GetMapping(value = "user/{name}")
+    @ApiOperation("改变用户姓名")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "name", value = "用户名", dataType = "string", paramType = "query"),
+            @ApiImplicitParam(name = "version", value = "版本", dataType = "int", paramType = "query")
+    })
+    public User getUser1(@PathVariable("name") String name) {
+        User user = new User();
+        user.setUsername("哒哒哒哒哒哒多多");
+        return user;
     }
 }

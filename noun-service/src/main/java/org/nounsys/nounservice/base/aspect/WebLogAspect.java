@@ -4,8 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.nounsys.nounservice.base.aspect.annotation.WebLog;
-import org.nounsys.nounservice.base.utils.JacksonUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -34,7 +32,7 @@ public class WebLogAspect {
         long startTime = System.currentTimeMillis();
         Object result = point.proceed();
         // 打印出参
-        log.info("Response args : {}", JacksonUtils.toJson(result));
+        log.info("Response args : {}", JacksonUtils.toJsonNotNullKey(result));
         // 打印耗时
         log.info("Time-consuming : {} ms", System.currentTimeMillis() - startTime);
         return result;
@@ -43,7 +41,7 @@ public class WebLogAspect {
     @Before("pointcut()")
     public void doBefore(final JoinPoint point) throws Throwable {
         // 开始打印请求日志
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes attributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         // 获取 @WebLog 注解的描述信息
         String methodDescription = getAspectLogDescription(point);
@@ -61,12 +59,11 @@ public class WebLogAspect {
         // 打印请求的 IP
         log.info("IP             : {}", request.getRemoteAddr());
         // 打印请求入参
-        log.info("Request Args   : {}", JacksonUtils.toJson(point.getArgs()));
+        log.info("Request Args   : {}", JacksonUtils.toJsonNotNullKey(point.getArgs()));
     }
 
     /**
      * 在切点之后织入
-     *
      * @throws Throwable
      */
     @After("pointcut()")

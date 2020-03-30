@@ -33,7 +33,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("noun-service API Title")
-                .description("noun-service 接口文档")
+                .description("noun-service 接口稳当")
                 .termsOfServiceUrl(" API terms of service")
                 .version("1.0.0")
                 .license("org.noun.service.com")

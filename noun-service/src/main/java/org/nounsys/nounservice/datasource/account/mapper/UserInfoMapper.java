@@ -1,17 +1,9 @@
 package org.nounsys.nounservice.datasource.account.mapper;
 
 import org.nounsys.nounservice.datasource.account.entity.UserInfo;
+import org.springframework.stereotype.Repository;
 
-public interface UserInfoMapper {
-    int deleteByPrimaryKey(Long id);
+@Repository
+public interface UserInfoMapper extends GenericMapper<UserInfo> {
 
-    int insert(UserInfo record);
-
-    int insertSelective(UserInfo record);
-
-    UserInfo selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(UserInfo record);
-
-    int updateByPrimaryKey(UserInfo record);
 }

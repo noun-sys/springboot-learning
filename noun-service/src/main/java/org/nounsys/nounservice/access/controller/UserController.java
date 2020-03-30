@@ -3,98 +3,29 @@ package org.nounsys.nounservice.access.controller;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.nounsys.nounservice.base.aspect.annotation.ApiVersion;
-import org.nounsys.nounservice.base.utils.JwtUtils;
-import org.nounsys.nounservice.domain.response.UserDetailResponse;
-import org.nounsys.nounservice.datasource.account.entity.User;
-import org.nounsys.nounservice.datasource.account.mapper.UserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author:gaoxu
  * @create:2020-03-16 15:38
  **/
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
 
-    private JwtUtils jwtUtils;
-    private UserMapper userMapper;
-
-    @Autowired
-    public UserController(JwtUtils jwtUtils, UserMapper userMapper) {
-        this.jwtUtils = jwtUtils;
-        this.userMapper = userMapper;
-    }
-
     @ApiOperation("用户登陆")
-    @ApiImplicitParams({@ApiImplicitParam(name = "userName", value = "用户名", required = true, dataType = "String", paramType = "query"),
-            @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String", paramType = "query")})
+    @ApiImplicitParams({@ApiImplicitParam(name = "userName",value = "用户名",required = true,dataType = "String",paramType="query"),
+            @ApiImplicitParam(name = "password",value = "密码",required = true,dataType = "String",paramType="query")})
     @PostMapping(value = "/login")
-    public String Login(@RequestParam String userName, @RequestParam String password) {
-        if (userName.equals("admin") && password.equals("admin")) {
-            return "OK";
-        } else {
-            return "Fail";
+    public ResponseEntity Login(@RequestParam String userName, @RequestParam  String password){
+        if (userName.equals("admin")&&password.equals("admin")){
+            return ResponseEntity.ok("OK");
+        }else{
+            return ResponseEntity.ok("Fail");
         }
-    }
-
-    @ApiOperation("获取用户授权Token码")
-    @PostMapping(value = "/token")
-    public String getToken() {
-        Map<String, String> claims = new HashMap<>();
-        claims.put("privateKey", "bl");
-        claims.put("seractKey", "Mp");
-        return jwtUtils.sign(claims);
-    }
-
-    @ApiOperation("获取用户信息")
-    @PostMapping(value = "/get")
-    public User getUserById(@RequestParam Long userId) {
-        return userMapper.selectByPrimaryKey(userId);
-    }
-
-    @ApiOperation("获取用户信息")
-    @GetMapping(value = "/get/info")
-    public User getUserByIdInfo(@RequestParam Long userId) {
-        return userMapper.selectByPrimaryKey(userId);
-    }
-
-    @ApiOperation("用户登录请求")
-    @RequestMapping(value = "/login/info", method = RequestMethod.POST)
-    public String putAdmin(@RequestBody UserDetailResponse userDetailResponse) {
-        return userDetailResponse.getUserName();
-    }
-
-    @ApiVersion(1)
-    @GetMapping("/user/{name}")
-    @ApiOperation("改变用户姓名")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "name", value = "用户名", dataType = "string", paramType = "query"),
-            @ApiImplicitParam(name = "version", value = "版本", dataType = "int", paramType = "query")
-    })
-    public User getUser(@PathVariable("name") String name) {
-        User user = new User();
-        user.setUsername(name);
-        user.setUsername("哒哒哒哒哒哒多多123");
-        return user;
-    }
-
-
-    @ApiVersion(3)
-    @GetMapping(value = "user/{name}")
-    @ApiOperation("改变用户姓名")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "name", value = "用户名", dataType = "string", paramType = "query"),
-            @ApiImplicitParam(name = "version", value = "版本", dataType = "int", paramType = "query")
-    })
-    public User getUser1(@PathVariable("name") String name) {
-        User user = new User();
-        user.setUsername("哒哒哒哒哒哒多多");
-        return user;
     }
 }

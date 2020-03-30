@@ -1,17 +1,9 @@
 package org.nounsys.nounservice.datasource.account.mapper;
 
 import org.nounsys.nounservice.datasource.account.entity.EnterpriseVerification;
+import org.springframework.stereotype.Repository;
 
-public interface EnterpriseVerificationMapper {
-    int deleteByPrimaryKey(Long id);
+@Repository
+public interface EnterpriseVerificationMapper extends GenericMapper<EnterpriseVerification> {
 
-    int insert(EnterpriseVerification record);
-
-    int insertSelective(EnterpriseVerification record);
-
-    EnterpriseVerification selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(EnterpriseVerification record);
-
-    int updateByPrimaryKey(EnterpriseVerification record);
 }

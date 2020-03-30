@@ -1,17 +1,9 @@
 package org.nounsys.nounservice.datasource.account.mapper;
 
 import org.nounsys.nounservice.datasource.account.entity.Enterprise;
+import org.springframework.stereotype.Repository;
 
-public interface EnterpriseMapper {
-    int deleteByPrimaryKey(Long id);
+@Repository
+public interface EnterpriseMapper extends GenericMapper<Enterprise> {
 
-    int insert(Enterprise record);
-
-    int insertSelective(Enterprise record);
-
-    Enterprise selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(Enterprise record);
-
-    int updateByPrimaryKey(Enterprise record);
 }
